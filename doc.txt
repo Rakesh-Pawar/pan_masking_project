@@ -1,0 +1,61 @@
+### Project Structure 
+
+pan_masking_project/
+│── app/
+│   ├── main.py                 # FastAPI main application
+│   ├── config.py               # Configuration settings
+│   ├── utils.py                # Utility functions for processing
+│   ├── routes.py               # API endpoints
+│── services/
+│   ├── image_processing.py      # Image alignment & masking logic
+│── processed_pan_cards/         # Directory for storing masked images
+│── temp/                        # Temporary image storage
+│── requirements.txt             # Required dependencies
+│── README.md                    # Project documentation
+│── .env                         # Environment variables
+
+
+### Project Structure Explanation
+- **app/**: Contains the main application code, including the FastAPI app, configuration settings, utility functions, and API routes.
+- **services/**: Contains the image processing logic, including functions for aligning and masking images.
+- **processed_pan_cards/**: Directory for storing the masked images after processing.
+- **temp/**: Temporary storage for images during processing.
+- **requirements.txt**: Lists the required dependencies for the project.
+- **README.md**: Documentation for the project, including setup instructions and usage.
+- **.env**: Contains environment variables for configuration, such as API keys or database URLs.
+
+### Project Setup Instructions
+1. Clone the repository:
+```bash
+git clone <repository_url>
+cd pan_masking_project
+```
+2. Create a virtual environment:
+```bash
+python -m venv venv
+ - linux/macOS 
+   source venv/bin/activate  
+ - Windows 
+   venv\Scripts\activate
+```
+3. Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
+4. Set up environment variables in the `.env` file:
+```bash
+# Example .env file
+API_KEY=your_api_key
+DATABASE_URL=your_database_url
+```
+5. Run the FastAPI application:
+```bash
+uvicorn app.main:app --reload
+```
+6. Upload an image using the API  (postman or curl):
+```bash
+curl -X 'POST' 'http://127.0.0.1:8000/upload/' -F 'file=@pan_card.jpg'
+
+
+
+deep-seek key:  sk-011d8c6d61de45ada377d2c2762440da
